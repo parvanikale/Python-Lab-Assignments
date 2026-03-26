@@ -1,32 +1,30 @@
 import pandas as pd
 
-# Create DataFrame
 data = {
-    'State': ['Maharashtra', 'Gujarat', 'Rajasthan', 'Kerala', 'Punjab'],
-    'Area': [307713, 196244, 342239, 38863, 50362],   # in sq km
-    'Population': [112374333, 60439692, 68548437, 33406061, 27743338]
+    'State': ['Maharashtra','Gujarat','Karnataka','Tamil Nadu','Rajasthan'],
+    'Area': [307713,196244,191791,130058,342239],
+    'Population': [112374333,60439692,61095297,72147030,68548437]
 }
 
 df = pd.DataFrame(data)
 
-# a) Complete information
-print("\nState Information:")
+print("\nComplete Data:")
 print(df)
 
-# b) State with largest Area
-print("\nState with Largest Area:")
-print(df.loc[df['Area'].idxmax()])
+# Largest area
+print("Largest Area State:")
+print(df.loc[df['Area'].idxmax()]['State'])
 
-# c) State with largest Population
-print("\nState with Largest Population:")
-print(df.loc[df['Population'].idxmax()])
+# Largest population
+print("Largest Population State:")
+print(df.loc[df['Population'].idxmax()]['State'])
 
-# d) Calculate population density
+# Density
 df['Density'] = df['Population'] / df['Area']
 
-print("\nWith Population Density:")
-print(df)
+print("\nDensity:")
+print(df[['State','Density']])
 
-# e) State with highest density
-print("\nState with Highest Population Density:")
-print(df.loc[df['Density'].idxmax()])
+# Highest density
+print("Highest Density State:")
+print(df.loc[df['Density'].idxmax()]['State'])

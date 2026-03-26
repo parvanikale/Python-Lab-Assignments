@@ -5,17 +5,21 @@ df = pd.read_csv("books.csv")
 print("\nComplete Report:")
 print(df)
 
-author_name = input("\nEnter author name: ")
-print(df[df['author'] == author_name])
+# Author books
+author = input("Enter author: ")
+print(df[df['author'] == author])
 
-publisher_name = input("\nEnter publisher name: ")
-print(df[df['publisher'] == publisher_name])
+# Publisher books
+pub = input("Enter publisher: ")
+print(df[df['publisher'] == pub])
 
-print("\nCheapest Book:")
+# Cheapest & costliest
+print("Cheapest Book:")
 print(df.loc[df['price'].idxmin()])
 
-print("\nCostliest Book:")
+print("Costliest Book:")
 print(df.loc[df['price'].idxmax()])
 
-print("\nSorted by Year:")
-print(df.sort_values(by='year'))
+# Sort by year
+print("Sorted by Year:")
+print(df.sort_values('year'))
